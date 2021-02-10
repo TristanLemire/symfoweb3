@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">The Simple Bar/beers</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            {% set route_name = app.request.attributes.get('_route') %}
+            <li class="nav-item">
+                <a {% if route_name == "bar" %} class="nav-link active" {% else %} class="nav-link" {% endif %} href="{{ path('bar') }}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a {% if route_name == "beers" %} class="nav-link active" {% else %} class="nav-link" {% endif %} href="{{ path('beers') }}">Beer Belgium</a>
+            </li>
+            <li class="nav-item">
+                <a {% if route_name == "mentions" %} class="nav-link active" {% else %} class="nav-link" {% endif %} href="{{ path('mentions') }}">Mentions legales</a>
+            </li>
+        </ul>
+    </div>
+</nav>
